@@ -25,6 +25,7 @@
         <module>configserver</module>
         <module>user-service</module>
         <module>advertise-service</module>
+        <module>eurekaserver</module>
     </modules>
 
     <dependencies>
