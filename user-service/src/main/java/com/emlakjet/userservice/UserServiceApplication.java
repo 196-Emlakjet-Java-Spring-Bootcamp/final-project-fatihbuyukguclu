@@ -1,13 +1,13 @@
-package com.emlakjet.finalprojectfatihbuyukguclu;
+package com.emlakjet.userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FinalProjectFatihbuyukgucluApplication {
+public class UserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FinalProjectFatihbuyukgucluApplication.class, args);
+        SpringApplication.run(UserServiceApplication.class, args);
     }
 
 }
