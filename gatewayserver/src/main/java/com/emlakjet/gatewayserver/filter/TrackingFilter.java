@@ -12,8 +12,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
-import static java.lang.System.Logger.Level.DEBUG;
-
 @Component
 public class TrackingFilter implements GlobalFilter {
 

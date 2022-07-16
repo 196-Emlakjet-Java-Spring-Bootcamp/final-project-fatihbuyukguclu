@@ -15,7 +15,10 @@ public class FilterUtils {
     public String getCorrelationId(HttpHeaders headers){
         if (headers.get(CORRELATION_ID) != null){
             List<String> header = headers.get(CORRELATION_ID);
-            return header.stream().findFirst().get();
+            assert header != null;
+            if(header.stream().findFirst().isPresent()){
+                return header.stream().findFirst().get();
+            }
         }
         return null;
     }
