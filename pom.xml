@@ -26,6 +26,7 @@
         <module>user-service</module>
         <module>advertise-service</module>
         <module>eurekaserver</module>
+        <module>gatewayserver</module>
     </modules>
 
     <dependencies>
