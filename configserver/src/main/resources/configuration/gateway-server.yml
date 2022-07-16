@@ -14,7 +14,11 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
 
 management:
   endpoints:
