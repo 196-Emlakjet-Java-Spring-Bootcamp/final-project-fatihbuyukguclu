@@ -19,6 +19,7 @@ public class AdvertiseServiceImpl implements AdvertiseService{
     @Override
     public void createAdvertise(Advertise advertise, String userId) {
         advertise.setUserId(Long.valueOf(userId));
+        advertise.setViewCount(1L);
         advertise.setState(AdvertiseState.WAITING);
         advertiseRepository.save(advertise);
     }

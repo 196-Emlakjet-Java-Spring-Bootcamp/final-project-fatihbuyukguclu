@@ -12,9 +12,11 @@ import java.util.Optional;
 public class AdminService {
 
     private final AdvertiseRepository advertiseRepository;
+    private final MessagingService messagingService;
 
-    public AdminService(AdvertiseRepository advertiseRepository) {
+    public AdminService(AdvertiseRepository advertiseRepository, MessagingService messagingService) {
         this.advertiseRepository = advertiseRepository;
+        this.messagingService = messagingService;
     }
 
     public List<Advertise> getAllAdvertise() {
@@ -32,7 +34,10 @@ public class AdminService {
         Advertise advertise = optionalAdvertise.get();
         advertise.setState(AdvertiseState.APPROVED);
 
-        advertiseRepository.save(advertise);
+        // Using saveAndFlush method to access Advertise ID
+        advertiseRepository.saveAndFlush(advertise);
+
+        messagingService.sendMessage(advertise);
 
         return advertise;
     }
