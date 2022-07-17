@@ -1,4 +1,4 @@
-package com.emlakjet.advertiseservice.utils;
+package com.example.adminservice.utils;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;

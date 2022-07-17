@@ -1,11 +1,12 @@
-package com.emlakjet.advertiseservice.utils;
+package com.example.adminservice.utils;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter@Setter
+@Getter
+@Setter
 //POJO class that holds HTTP headers value
 public class UserContext {
     public static final String CORRELATION_ID = "correlation_id";
@@ -13,5 +14,4 @@ public class UserContext {
 
     private String correlation_id;
     private String access_token;
-
 }

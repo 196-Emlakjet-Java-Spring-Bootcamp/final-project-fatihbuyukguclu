@@ -1,4 +1,4 @@
-package com.emlakjet.advertiseservice.security;
+package com.example.adminservice.security;
 
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
 import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter;
@@ -24,7 +24,9 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/api/v1/**").hasAnyRole("ADMIN").anyRequest().permitAll();
+        http.authorizeRequests()
+                .antMatchers("/*")
+                .authenticated();
 
     }
 

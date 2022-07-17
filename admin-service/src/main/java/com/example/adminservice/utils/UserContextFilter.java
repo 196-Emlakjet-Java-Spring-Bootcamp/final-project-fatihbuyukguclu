@@ -1,4 +1,4 @@
-package com.emlakjet.advertiseservice.utils;
+package com.example.adminservice.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
