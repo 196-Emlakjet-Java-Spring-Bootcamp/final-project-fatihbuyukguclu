@@ -10,3 +10,23 @@ services:
       POSTGRES_PASSWORD: "postgres"
     volumes:
       - /var/lib/postgres
+
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      KEYCLOAK_VERSION: 6.0.1
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+
+    ports:
+      - "8080:8080"
+    networks:
+      backend:
+        aliases:
+          - "keycloak"
+
+networks:
+  backend:
+    driver: bridge
