@@ -11,9 +11,31 @@ eureka:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      routes:
+        - id: admin-service
+          uri: lb://admin-service
+          predicates:
+            - Path=/admin/**
+          filters:
+            - RewritePath=/admin/(?<path>.*), /$\{path}
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<path>.*), /$\{path}
+        - id: advertise-service
+          uri: lb://advertise-service
+          predicates:
+            - Path=/advertise/**
+          filters:
+            - RewritePath=/advertise/(?<path>.*), /$\{path}
+        - id: report-service
+          uri: lb://report-service
+          predicates:
+            - Path=/report/**
+          filters:
+            - RewritePath=/report/(?<path>.*), /$\{path}
 
 logging:
   level:
