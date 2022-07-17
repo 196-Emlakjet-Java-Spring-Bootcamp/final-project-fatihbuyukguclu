@@ -28,13 +28,13 @@ public class AdminController {
     @GetMapping("/advertises/{advertId}/approve")
     public ResponseEntity<?> approveAdvertise(@PathVariable String advertId){
 
-        return null;
+        return ResponseEntity.ok(adminService.approveAdvertise(advertId).getBody());
     }
 
     @GetMapping("/advertises/{advertId}/reject")
     public ResponseEntity<?> rejectAdvertise(@PathVariable String advertId){
 
-        return null;
+        return ResponseEntity.ok(adminService.rejectAdvertise(advertId).getBody());
     }
 
 }

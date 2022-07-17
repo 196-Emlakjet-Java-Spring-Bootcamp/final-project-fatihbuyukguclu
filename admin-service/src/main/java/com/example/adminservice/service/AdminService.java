@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class AdminService {
 
-    private static final String BASE_URL = "http://ADVERTISE-SERVICE:8082";
+    private static final String BASE_URL = "http://ADVERTISE-SERVICE:8082/api/v1/admin";
     private final RestTemplate restTemplate;
 
     public AdminService(RestTemplate restTemplate) {
@@ -22,11 +22,28 @@ public class AdminService {
 
         ResponseEntity<Advertise[]> restExchange =
                 restTemplate.getForEntity(
-                        BASE_URL + "/api/v1/admin",
+                        BASE_URL,
                         Advertise[].class
                 );
 
         return Arrays.asList(restExchange.getBody());
     }
 
+    public ResponseEntity<?> approveAdvertise(String advertId) {
+
+        return restTemplate.getForEntity(
+                BASE_URL + "/advertises/{advertId}/approve",
+                String.class,
+                advertId
+        );
+    }
+
+    public ResponseEntity<?> rejectAdvertise(String advertId) {
+
+        return restTemplate.getForEntity(
+                BASE_URL + "/advertises/{advertId}/reject",
+                String.class,
+                advertId
+        );
+    }
 }

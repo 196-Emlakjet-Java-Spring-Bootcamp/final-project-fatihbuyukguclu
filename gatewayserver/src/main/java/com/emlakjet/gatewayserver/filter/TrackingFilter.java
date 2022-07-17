@@ -24,6 +24,7 @@ public class TrackingFilter implements GlobalFilter {
     // Code that executes everytime when a request passes through filter
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         HttpHeaders requestHeader = exchange.getRequest().getHeaders(); // HTTP header from request
+
         if (isCorrelationIdPresent(requestHeader)){
             logger.debug("correlation_id found in trackingfilter: {}",filterUtils.getCorrelationId(requestHeader));
         }else{
@@ -32,6 +33,10 @@ public class TrackingFilter implements GlobalFilter {
             logger.debug("correlation_id generated in tracking filter: {}",correlationId);
         }
         return chain.filter(exchange);
+    }
+
+    private boolean isAuthTokenPresent(HttpHeaders header){
+        return filterUtils.getAuthToken(header) != null;
     }
 
 

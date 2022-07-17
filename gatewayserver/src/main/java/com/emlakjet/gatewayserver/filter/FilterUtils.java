@@ -10,13 +10,25 @@ import java.util.List;
 public class FilterUtils {
 
     public static final String CORRELATION_ID = "correlation-id";
-
+    public static final String AUTH_TOKEN = "Authorization";
     // return correlationId if it has or null
     public String getCorrelationId(HttpHeaders headers){
         if (headers.get(CORRELATION_ID) != null){
             List<String> header = headers.get(CORRELATION_ID);
             assert header != null;
             if(header.stream().findFirst().isPresent()){
+                return header.stream().findFirst().get();
+            }
+        }
+        return null;
+    }
+
+
+    public String getAuthToken(HttpHeaders headers) {
+        if(headers.get(AUTH_TOKEN) != null){
+            List<String> header = headers.get(AUTH_TOKEN);
+            assert header != null;
+            if (header.stream().findFirst().isPresent()){
                 return header.stream().findFirst().get();
             }
         }
@@ -31,6 +43,14 @@ public class FilterUtils {
                         .build()
                 )
                 .build();
+    }
+
+    public ServerWebExchange setRequestHeader(ServerWebExchange exchange, String token){
+        return exchange.mutate().request(
+                exchange.getRequest().mutate()
+                        .header(AUTH_TOKEN,token)
+                        .build()
+        ).build();
     }
 
     public ServerWebExchange setCorrelationId(ServerWebExchange exchange, String correlationId){
