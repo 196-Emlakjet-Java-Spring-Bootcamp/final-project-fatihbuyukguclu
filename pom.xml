@@ -26,6 +26,7 @@
         <module>admin-service</module>
         <module>user-service</module>
         <module>advertise-service</module>
+        <module>report-service</module>
         <module>eurekaserver</module>
         <module>gatewayserver</module>
     </modules>
