@@ -23,6 +23,7 @@
 
     <modules>
         <module>configserver</module>
+        <module>admin-service</module>
         <module>user-service</module>
         <module>advertise-service</module>
         <module>eurekaserver</module>
