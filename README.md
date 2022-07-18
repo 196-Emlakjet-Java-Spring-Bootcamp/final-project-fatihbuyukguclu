@@ -72,4 +72,7 @@ $ mvn clean package dockerfile:build
 # To Up Services
 $ docker-compose up -d
 ```
+## Study Resource
 
+1. <a href="https://www.manning.com/books/spring-microservices-in-action-second-edition">Spring Microservices in Action, Second Edition</a>
+2. <a href="https://www.manning.com/books/microservices-patterns"> Microservices Pattern With examples in Java</a>
