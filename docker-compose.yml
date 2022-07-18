@@ -17,17 +17,17 @@ services:
         aliases:
           - "database"
 
-    keycloak:
-      image: jboss/keycloak
-      environment:
-        KEYCLOAK_USER: admin
-        KEYCLOAK_PASSWORD: admin
-      ports:
-        -  "8080:8080"
-      networks:
-        backend:
-          aliases:
-            - "keycloak"
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      -  "8080:8080"
+    networks:
+      backend:
+        aliases:
+          - "keycloak"
 
   configserver:
     image: final-project/configserver:0.0.1-SNAPSHOT
